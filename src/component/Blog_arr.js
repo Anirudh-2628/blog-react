@@ -19,6 +19,9 @@ export default function Blog(){
     return(
         <>
         
+
+
+        
             <div className="blog">
                 <div className="blog-title">THIS IS BLOG 1</div>
                 <div className="blog-content">this is my first blog and hope you guys like my blog</div>
