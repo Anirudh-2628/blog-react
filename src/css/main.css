@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+}
+
+.navbar {
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10vh;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.navbar-logo-img {
+    width: 2.5rem;
+}
+
+.nav-logo {
+    font-family: 'Libre Barcode 128 Text', cursive;
+    color: white;
+    font-size: 30px;
+}
+
+.nav-ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-li {
+    list-style: none;
+    padding: 0 1rem;
+}
+
+.nav-li a,
+.navbar a {
+    color: white;
+    font-family: 'M PLUS Code Latin', sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.home-container {
+    width: 60vw;
+    margin: auto;
+    padding-top: 5rem;
+}
+
+.home-container>p {
+    padding: 10px;
+    font-family: 'M PLUS Code Latin', sans-serif;
+    color: white;
+}
+
+.blog-main {
+    color: antiquewhite;
+}
+
+.blog-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 4rem auto;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+    justify-content: flex-start;
+}
+
+.blog {
+    width: 90%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid grey;
+}
+
+.blog .blog-title {
+    padding: 10px;
+    font-family: 'M PLUS Code Latin', sans-serif;
+    font-size: 15px;
+}
+
+.blog .blog-content {
+    padding: 10px;
+    font-family: 'M PLUS Code Latin', sans-serif;
+}
