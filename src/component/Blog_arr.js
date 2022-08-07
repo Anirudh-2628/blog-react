@@ -14,7 +14,6 @@ import '../css/main.css'
 //     console.log("connected")
 // });
 
-
 export default function Blog(){
     return(
         <>        
