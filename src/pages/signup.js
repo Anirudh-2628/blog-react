@@ -1,0 +1,36 @@
+import React from "react";
+import Axios from "axios";
+import { Link } from "react-router-dom";
+
+
+
+
+
+export default function Signup() {
+    const [username, setUsername] = React.useState('')
+    const [password, setPassword] = React.useState('')
+
+
+    const loginClk = () =>{
+        Axios.post('http://localhost:3001/api/signup', {username: username, password: password}).then(
+            (responce) => {
+                alert(responce.data.message)
+            }
+        )
+    }
+
+
+    return(
+        <>
+            <div className="login-root-container border-left border-right">
+                <p className="login-head">SIGN UP</p>
+                <input type="text" name="username" placeholder="username" id="username" className="login-inputs" onChange={(e) => {setUsername(e.target.value)}}></input>
+                <input type="password" name="password" placeholder="password" id="password" className="login-inputs" onChange={(e) => {setPassword(e.target.value)}}></input>
+                <a className="login-btn" onClick={loginClk}>SIGN-UP</a>
+                <div className="login-more-options">
+                    <p>Already have an account? <a><Link to='/login' className="login-btn">LOGIN</Link></a></p>
+                </div>
+            </div>
+        </>
+    )
+}

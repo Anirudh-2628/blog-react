@@ -1,9 +1,8 @@
 import React from "react";
-import Blog from "../component/Blog_arr";
 import '../css/main.css'
 import Blogs from "./Blogs";
-
 export default function Home() {
+    
     return(
         <>
             <div className="home-container">

@@ -1,8 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import '../css/main.css'
+import Axios from "axios";
 
 export default function Header() {
+    Axios.defaults.withCredentials = true;
+    const [loginStatus, setLoginstatus] = React.useState('');
+    React.useEffect(() => {
+        Axios.get('http://localhost:3001/api/login').then((responce) => {
+            console.log(responce);
+            if (responce.data.loggedIn == true) {
+                setLoginstatus(responce.data.user[0].username)
+            }
+            else {
+                setLoginstatus("SIGNUP / LOGIN")
+            }
+        })
+    }, [])
     return (
     <>
         <nav className="navbar">
@@ -15,7 +29,7 @@ export default function Header() {
             </ul>
             <div className="user-info">
                 <img src="/img/user-icon1.png" width = '50px' alt="USER" className="navbar-logo-img" />
-                <a href="../public/index.html">SIGN UP</a>  
+                <a><Link to='/login'>{loginStatus}</Link></a>  
             </div>
         </nav>
     </>
