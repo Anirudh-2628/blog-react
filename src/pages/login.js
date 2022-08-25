@@ -1,18 +1,25 @@
 import React from "react";
 import Axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
     const [username, setUsername] = React.useState('')
     const [password, setPassword] = React.useState('')
-
+    const [loginStatus, setLoginstatus] = React.useState('')
     Axios.defaults.withCredentials = true
+    let navigate = useNavigate(); 
+    const routeChange = () =>{ 
+    let path = `/`; 
+    navigate(path);
+  }
+
+  
     const loginClk = () =>{
         Axios.post('http://localhost:3001/api/login', {username: username, password: password}).then(
             (responce) => {
-                alert(responce.data.message)
-            }
-        )
+                routeChange();
+                }
+            )
     }
 
     return(

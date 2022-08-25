@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 10vh;
+    height: 12vh;
 }
 
 .user-info {
@@ -46,21 +46,43 @@ body {
 .nav-li a,
 .navbar a {
     color: white;
-    font-family: 'M PLUS Code Latin', sans-serif;
+    font-family: 'Source Code Pro', monospace;
     text-decoration: none;
     cursor: pointer;
 }
 
 .home-container {
-    width: 60vw;
+    width: 50vw;
     margin: auto;
     padding-top: 5rem;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    text-align: center;
 }
 
 .home-container>p {
-    padding: 1rem;
-    font-family: 'M PLUS Code Latin', sans-serif;
+    /* padding: 2rem; */
+    font-family: 'Dancing Script', cursive;
     color: white;
+    font-size: 20px;
+}
+.home-quote {
+    width: 90vw;
+    margin: 5rem auto;
+    padding: 2rem;
+    text-align: center;
+    font-weight: 900;
+    font-size: 15px;
+    letter-spacing: 4px;
+    font-family: 'Source Code Pro', monospace;
+    color: black;
+    background-color: grey;
+    /* border: 1px dashed white; */
+}
+
+.home-quote:hover {
+    color: black;
+    background-color: grey;
 }
 
 .blog-main {
@@ -99,7 +121,7 @@ body {
 
 .tweet-info p {
     font-size: 15px;
-    font-family: 'M PLUS Code Latin', sans-serif;
+    font-family: 'Source Code Pro', monospace;
     text-align: start;
     width: 100%;
 }
@@ -117,7 +139,7 @@ body {
     width: 90%;
     margin: 1rem auto;
     font-size: 20px;
-    font-family: 'M PLUS Code Latin', sans-serif;
+    font-family: 'Source Code Pro', monospace;
 
 }
 
@@ -187,12 +209,13 @@ body {
 .tweet-write a {
     color: white;
     text-decoration: none;
-    font-family: 'M PLUS Code Latin', sans-serif;
+    font-family: 'Source Code Pro', monospace;
     /* font-family: 'DynaPuff', cursive; */
     border: 1px solid grey;
     padding: 8px;
     margin: auto;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 .tweet-write a:hover{
@@ -209,7 +232,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: 'M PLUS Code Latin', sans-serif;
+    font-family: 'Source Code Pro', monospace;
 
 }
 .login-root-container .login-head {

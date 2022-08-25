@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import '../css/main.css'
-import Blog from "../component/Blog_arr";
+import Tweet from "../component/Tweet";
 import autosize from "autosize";
 import Axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
 
 export default function Blogs() {
     const [tweet, setTweet] = React.useState('');
@@ -26,12 +25,12 @@ export default function Blogs() {
 
                     
                 <div>
-                    <a href="/" onClick={tweetSubmit}>TWEET</a>
+                    <a onClick={tweetSubmit}>TWEET</a>
                 </div>
             </div>
             
             <div className="tweet-container">
-                <Blog />
+                <Tweet />
             </div>
         </>
     )

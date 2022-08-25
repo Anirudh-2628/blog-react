@@ -1,6 +1,6 @@
 import React from "react";
 import '../css/main.css'
-import Blogs from "./Blogs";
+import Tweets from "./Tweets";
 export default function Home() {
     
     return(
@@ -9,9 +9,11 @@ export default function Home() {
                 <p>Learn in Public</p>
                 <p>Teach in Public</p>
                 <p>Share your Experiences</p>
-                <p><h1>INITIATIVE TO CONNECT CODING ENTHUSIAST'S FROM AROUND THE WORLD</h1></p>
             </div>
-            <Blogs />
+            <div className="home-quote">
+                <p><h1>initiative to connnect coders from around the world</h1></p>
+            </div>
+            <Tweets />
         </>
     )
 }   
