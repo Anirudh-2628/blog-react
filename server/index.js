@@ -63,9 +63,7 @@ app.post('/api/signup', (req,res) => {
         bio varchar(60))
         ;`;
     db.query(sqlQuery1, (err, resp) => {
-        console.log("USER TABLE MADE")
         req.session.user = username
-        console.log(req.session.user)
         res.send(username)
     });
 })
@@ -80,7 +78,6 @@ app.post('/api/login', (req, res) => {
             bcrypt.compare(password, responce[0].password, (error, result) => {
                 if (result) {
                     req.session.user = responce[0].username
-                    console.log(req.session.user)
                     res.send(responce); 
                 }
                 else {
@@ -94,8 +91,14 @@ app.post('/api/login', (req, res) => {
     })
 })
 
+app.get('/api/logout', (req,res) => {
+    req.session.destroy((err) => {
+        res.clearCookie('user')
+        res.send({loggedIn: false})
+    });
+})
 
-app.get('/api/login', (req,res) => {
+app.get('/api/login-chk', (req,res) => {
     if (req.session.user) {
         res.send({loggedIn: true, user: req.session.user})
     }
@@ -105,23 +108,40 @@ app.get('/api/login', (req,res) => {
 })
 
 
-app.get('/api/get', (req, res) => {
-    const sqlQuery = "SELECT * FROM USER_TWEETS";
+app.get('/api/get-tweets', (req, res) => {
+    const sqlQuery = `SELECT * FROM ${req.session.user}`;
     db.query(sqlQuery, (err, responce) => {
         res.send(responce)
     });
 })
 
+app.get('/api/get-userinfo', (req,res) => {
+    res.send(req.session.user)
+})
 
-app.post('/api/insert', (require, res) => {
+
+app.post('/api/insert-tweet', (require, res) => {
     const tweet = require.body.tweet;
-    const sqlQuery = "INSERT INTO user_tweets (tweet) VALUES (?)";
+    const sqlQuery = `INSERT INTO ${require.session.user} (tweet) VALUES (?)`;
     db.query(sqlQuery, [tweet], (err, result) => {
         res.send(result)
     });
 });
 
+app.get('/api/get-userProfile-data', (req,res) => {
+    const username = req.body.username;
+    const sqlQuery = `SELECT * FROM ${username}`;
+    db.query(sqlQuery, (require, responce) => {
+        res.send(responce);
+    })
+})
 
+app.get('/api/search-people', (req,res) => {
+    const sqlQuery = `SELECT username FROM users`
+    db.query(sqlQuery, (err,responce) => {
+        res.send(responce)
+    })
+})
 app.listen(3001, () => {
     console.log("SERVER IS RUNNING");
 });

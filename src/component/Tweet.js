@@ -2,25 +2,26 @@ import React from "react";
 import '../css/main.css'
 import Axios from "axios";
 
-export default function Tweet(){
+export default function Tweet(props){
     
     const [tweetFetch, setTweetfetch] = React.useState([])
 
     React.useEffect(() => {
-        Axios.get('http://localhost:3001/api/get').then(
+        Axios.get('http://localhost:3001/api/get-tweets').then(
             (result) => {
-                console.log(result)
-                setTweetfetch(result.data)
-            }
-        )
-    }, [])
-
+                if (result.data.length > 0) {
+                    setTweetfetch(result.data)
+                } else {
+                    setTweetfetch([])
+                }
+            })
+        }, [])
     const tweetMap = tweetFetch.slice(0).reverse().map((value) => {
         if (value.id > 0) {
             return <div className="tweet">
                         <div className="tweet-info">
                             <img src="/img/user-icon1.png" width = '25px' alt="USER" className="tweet-user-img" />
-                            <p>ANIRUDH PATEL {value.date}</p>
+                            <p>{props.username} {value.date}</p>
                             <div className="tweet-more-options">
                                 <span className="material-symbols-outlined">more_vert</span>
                             </div>
@@ -42,7 +43,7 @@ export default function Tweet(){
                     </div>
         }
         else {
-            return <></>
+            return <><p>No dat </p></>
         }
     })
 
